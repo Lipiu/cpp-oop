@@ -3,21 +3,32 @@
 #include <cstring>
 
 /*
-    TO DO for next time:
-    - complete the new created classes using inheritance
-    ----------------------------------
+    TODO for next time:
+    - additional getters/setters
+        - for:
+            - fuelEfficiency
+            - horsePower
+            - torque
+            - safetyRating
+            - price
+            - topSpeed
+    - modify constructor
+    - add methods:
+        - check if the destructor works as intended
+        - start engine
+        - stop engine
+        - drive certain distance (lower fuel mileage/battery)
+        - refuel / charge battery
+        - display info about car in a nice formatted way
+        - compare cars (horsepower)
+    -----------------------------------
     What I did today:
-    added typeOfChassis, batterPercentage and range and their getters/setters
-    created ElectricCar.h and SportsCar.h
+    added more variables
     -----------------------------------
 
     Fixing the code
     - check potential memory leaks in getFeatures and setFeatures
-
-    Practice
-    - inheritance -> will work on ElectricCar.h and SportsCar.h
-    - methods
-        - method to verify if destructor works as intended -> did not attempt yet
+    -------------------------------------------------------------
 */
 
 class Car{
@@ -25,12 +36,20 @@ private:
     std::string manufacturer = "";
     std::string brand = "";
     std::string chassis = "";
-    std::string typeOfEngine = "";
+    std::string typeOfEngine = ""; // diesel, gasoline or hybrid
+    std::string transmissionType = "";
     int yearOfProduction = 0;
-    int batteryPercentage = 0;
-    int range = 0;
     int numberOfFeatures = 0;
+    float batteryPercentage = 0; // for electric cars
+    float range = 0;
     char** features = nullptr;
+    //added these today
+    float fuelEfficiency = 0;
+    float horsePower = 0;
+    float torque = 0;
+    float safetyRating = 0;
+    float price = 0;
+    float topSpeed = 0;
 
 public:
     //default constructor
@@ -112,11 +131,11 @@ public:
         return this->typeOfEngine;
     }
 
-    int getRange() const{
+    float getRange() const{
         return this->range;
     }
 
-    int getBatteryPercentage() const{
+    float getBatteryPercentage() const{
         return this->batteryPercentage;
     }
 
