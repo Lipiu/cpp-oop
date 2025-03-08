@@ -33,3 +33,4 @@
 
 #Additional gitignore commands
 C++ OOP/output/
+*.vscode
