@@ -12,7 +12,7 @@ int main() {
               << ", Year: " << car1.getYearOfProduction() << ", Features: " << car1.getNumberOfFeatures() << std::endl;
 
     // Test setters
-    car1.setManufacturer("Honda");
+    car1.setManufacturer("BMW");
     car1.setBrand("Civic");
     car1.setYearOfProduction(2023);
     const char* features2[] = {"Navigation", "Heated seats"};
