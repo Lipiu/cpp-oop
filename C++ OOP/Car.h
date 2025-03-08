@@ -2,34 +2,6 @@
 #include <string>
 #include <cstring>
 
-/*
-    TODO for next time:
-    - additional getters/setters
-        - for:
-            - fuelEfficiency
-            - horsePower
-            - torque
-            - safetyRating
-            - price
-            - topSpeed
-    - modify constructor
-    - add methods:
-        - check if the destructor works as intended
-        - start engine
-        - stop engine
-        - drive certain distance (lower fuel mileage/battery)
-        - refuel / charge battery
-        - display info about car in a nice formatted way
-        - compare cars (horsepower)
-    -----------------------------------
-    What I did today:
-    added more variables
-    -----------------------------------
-
-    Fixing the code
-    - check potential memory leaks in getFeatures and setFeatures
-    -------------------------------------------------------------
-*/
 
 class Car{
 private:
