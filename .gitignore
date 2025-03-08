@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+
+#Additional gitignore commands
+C++ OOP/output/
