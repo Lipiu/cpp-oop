@@ -1,14 +1,6 @@
 OVERALL IDEA: Car management sytem
 
     TODO for next time:
-    - additional getters/setters
-        - for:
-            - fuelEfficiency
-            - horsePower
-            - torque
-            - safetyRating
-            - price
-            - topSpeed
 
     - modify constructor
 
