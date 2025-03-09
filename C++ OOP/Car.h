@@ -22,6 +22,7 @@ private:
     float safetyRating = 0;
     float price = 0;
     float topSpeed = 0;
+    static float minPrice;
 
 public:
     //default constructor
@@ -111,6 +112,34 @@ public:
         return this->batteryPercentage;
     }
 
+    float getFuelEfficiency() const{
+        return this->fuelEfficiency;
+    }
+
+    float getHorsePower() const{
+        return this->horsePower;
+    }
+
+    float getTorque() const{
+        return this->torque;
+    }
+
+    float getSafetyRating() const{
+        return this->safetyRating;
+    }
+
+    float getPrice() const{
+        return this->price;
+    }
+
+    float getTopSpeed() const{
+        return this->topSpeed;
+    }
+
+    static float getMinPrice(){
+        return minPrice;
+    }
+
     //setters
     void setManufacturer(std::string newManufacturer){
         if(newManufacturer.empty()){
@@ -180,6 +209,43 @@ public:
         this->batteryPercentage = newBatteryPercentage;
     }
 
+    void setHorsePower(float newHorsePower){
+        if(newHorsePower < 0)
+            throw "Horse power cannot be negative. Exiting...";
+        this->horsePower = newHorsePower;
+    }
+
+    void setTorque(float newTorque){
+        if(newTorque < 0){
+            throw "Torque cannot be negative. Exiting...";
+        }
+        this->torque = newTorque;
+    }
+
+    void setSafetyRating(float newSafetyRating){
+        if(newSafetyRating < 0)
+            throw "Safety rating cannot be negative. Exiting...";
+        this->safetyRating = newSafetyRating;
+    }
+
+    void setPrice(float newPrice){
+        if(newPrice < minPrice)
+            throw "Minimum price is: ", minPrice;
+        this->price = newPrice;
+    }
+
+    void setTopSpeed(float newTopSpeed){
+        if(newTopSpeed < 180)
+            throw "Top speed must be at least 180";
+        this->topSpeed = newTopSpeed;
+    }
+
+    void setMinPrice(float newMinPrice){
+        if(newMinPrice < 0)
+            throw "Minimum price cannot be negative. Exiting...";
+        minPrice = newMinPrice;
+    }
+
     //operator
     Car& operator=(const Car& car){
         //to prevent car1 = car1
@@ -203,3 +269,6 @@ public:
         return *this;
     }
 };
+
+//initializing the static variable
+float Car::minPrice = 4000.0f;
