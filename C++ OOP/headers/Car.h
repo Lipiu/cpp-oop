@@ -306,5 +306,6 @@ public:
     void printInfo(){
         std::cout << std::endl;
         std::cout << "manufacturer: " << this->manufacturer;
+        std::cout << "brand: " << this->brand;
     }
 };
