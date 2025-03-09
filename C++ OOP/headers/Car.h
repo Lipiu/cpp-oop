@@ -22,11 +22,15 @@ private:
     float safetyRating = 0;
     float price = 0;
     float topSpeed = 0;
+
     static float minPrice;
+    static int carsInStock;
 
 public:
     //default constructor
-    Car(){}
+    Car(){
+        carsInStock++;
+    }
 
     //constructor with parameters
     Car(std::string manufacturer, std::string brand, int yearOfProduction, char** features, float fuelEfficiency, float horsePower, float torque, float safetyRating, float price, float topSpeed){
@@ -40,6 +44,8 @@ public:
         this->setSafetyRating(safetyRating);
         this->setPrice(price);
         this->setTopSpeed(topSpeed);
+
+        carsInStock++;
     }
 
     //copy constructor
@@ -70,6 +76,7 @@ public:
         price = car.price;
         topSpeed = car.topSpeed;
 
+        carsInStock++;
     }
 
     //destructor
@@ -79,6 +86,8 @@ public:
         }
         delete[] this->features;
         this->features = nullptr;
+
+        carsInStock--;
     }
 
     //getters
@@ -283,6 +292,8 @@ public:
     }
 
     void printInfo();
+    static int checkCarsInStock();
 };
 
 float Car::minPrice = 4000.0f;
+int Car::carsInStock = 0;

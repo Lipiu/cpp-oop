@@ -1,6 +1,7 @@
 #include <iostream>
 #include "../headers/Car.h"
 
+// method for printing info about the cars
 void Car::printInfo(){
         std::cout << std::endl;
         std::cout << "Manufacturer: " << this->manufacturer << std::endl;
@@ -28,4 +29,8 @@ void Car::printInfo(){
         std::cout << "Safety rating (1 [lowest] - 5 [highest]): "<< this->safetyRating << std::endl;
         std::cout << "Price ($): "<< this->price << std::endl;
         std::cout << "Top speed (Km/h): "<< this->topSpeed << std::endl;
+}
+
+int Car::checkCarsInStock(){
+    std::cout << "Cars available in stock: " << carsInStock;
 }
