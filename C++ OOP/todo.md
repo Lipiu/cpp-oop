@@ -5,12 +5,10 @@ OVERALL IDEA: Car management sytem
     - maybe replace char** with string
 
     - add methods:
-        - print info
         - start engine
         - stop engine
         - drive certain distance (lower fuel mileage/battery)
         - refuel / charge battery
-        - display info about car in a nice formatted way
         - compare cars (horsepower)
         - check if the destructor works as intended
         - search/filter cars by attributes

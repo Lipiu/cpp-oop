@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cstring>
-#include "headers/Car.h"
+#include "src/Car.cpp"
 
 int main() {
     Car c;

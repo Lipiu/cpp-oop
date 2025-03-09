@@ -22,7 +22,7 @@ private:
     float safetyRating = 0;
     float price = 0;
     float topSpeed = 0;
-    static const float minPrice;
+    static float minPrice;
 
 public:
     //default constructor
@@ -282,30 +282,7 @@ public:
         return *this;
     }
 
-    /*
-    std::string manufacturer = "";
-    std::string brand = "";
-    std::string chassis = "";
-    std::string typeOfEngine = ""; // diesel, gasoline or hybrid
-    std::string transmissionType = "";
-    int yearOfProduction = 0;
-    int numberOfFeatures = 0;
-    float batteryPercentage = 0; // for electric cars
-    float range = 0;
-    char** features = nullptr;
-    //added these today
-    float fuelEfficiency = 0;
-    float horsePower = 0;
-    float torque = 0;
-    float safetyRating = 0;
-    float price = 0;
-    float topSpeed = 0;
-    */
-
-    //method to print info
-    void printInfo(){
-        std::cout << std::endl;
-        std::cout << "manufacturer: " << this->manufacturer;
-        std::cout << "brand: " << this->brand;
-    }
+    void printInfo();
 };
+
+float Car::minPrice = 4000.0f;
