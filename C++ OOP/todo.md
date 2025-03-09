@@ -2,8 +2,6 @@ OVERALL IDEA: Car management sytem
 
     TODO for next time:
 
-    - modify constructor
-
     - add methods:
         - start engine
         - stop engine
@@ -13,6 +11,7 @@ OVERALL IDEA: Car management sytem
         - compare cars (horsepower)
         - check if the destructor works as intended
         - search/filter cars by attributes
+        - method for static variable minPrice
 
     - add classes:
         - Garage
@@ -33,6 +32,7 @@ OVERALL IDEA: Car management sytem
     Fixing the code - check potential memory leaks in getFeatures and setFeatures
     -----------------------------------
     What I did today:
-        - added more variables
+        - added getters and setters for the new added variables
+        - modified constructor and copy constructor
         - modified the TO DO list
     -----------------------------------

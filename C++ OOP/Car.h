@@ -22,7 +22,7 @@ private:
     float safetyRating = 0;
     float price = 0;
     float topSpeed = 0;
-    static float minPrice;
+    static const float minPrice;
 
 public:
     //default constructor
@@ -34,6 +34,12 @@ public:
         this->setBrand(brand);
         this->setYearOfProduction(yearOfProduction);
         this->setFeatures(features, numberOfFeatures);
+        this->setFuelEfficiency(fuelEfficiency);
+        this->setHorsePower(horsePower);
+        this->setTorque(torque);
+        this->setSafetyRating(safetyRating);
+        this->setPrice(price);
+        this->setTopSpeed(topSpeed);
     }
 
     //copy constructor
@@ -56,6 +62,13 @@ public:
         else{
             this->features = nullptr;
         }
+
+        fuelEfficiency = car.fuelEfficiency;
+        horsePower = car.horsePower;
+        torque = car.torque;
+        safetyRating = car.safetyRating;
+        price = car.price;
+        topSpeed = car.topSpeed;
 
     }
 
@@ -209,6 +222,12 @@ public:
         this->batteryPercentage = newBatteryPercentage;
     }
 
+    void setFuelEfficiency(float newFuelEfficiency){
+        if(newFuelEfficiency <= 0)
+            throw "Fuel efficiency cannot be negative or 0. Exiting...";
+        this->fuelEfficiency = newFuelEfficiency;
+    }
+
     void setHorsePower(float newHorsePower){
         if(newHorsePower < 0)
             throw "Horse power cannot be negative. Exiting...";
@@ -240,12 +259,6 @@ public:
         this->topSpeed = newTopSpeed;
     }
 
-    void setMinPrice(float newMinPrice){
-        if(newMinPrice < 0)
-            throw "Minimum price cannot be negative. Exiting...";
-        minPrice = newMinPrice;
-    }
-
     //operator
     Car& operator=(const Car& car){
         //to prevent car1 = car1
@@ -269,6 +282,3 @@ public:
         return *this;
     }
 };
-
-//initializing the static variable
-float Car::minPrice = 4000.0f;
