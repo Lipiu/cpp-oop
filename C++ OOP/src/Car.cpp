@@ -1,6 +1,4 @@
 #include <iostream>
-#include <thread>
-#include <chrono>
 #include "../headers/Car.h"
 
 // method for printing info about the cars
@@ -38,19 +36,31 @@ int Car::checkCarsInStock(){
     std::cout << "Cars available in stock: " << carsInStock;
 }
 
-// start engine method
-
-void Car::startEngine(){
-    while(fuelTank > 0){
-        if(fuelTank > 0){
-            std::cout << "Engine starting. Please wait!" << std::endl;
-            std::this_thread::sleep_for(std::chrono::seconds(5));
-            std::cout << "Engine is running... Fuel left: " << fuelTank << std::endl;
-            std::this_thread::sleep_for(std::chrono::seconds(1));
-            fuelTank--;
+void customDelay(int seconds) {
+    long long int count = 0;
+    long long int delayTime = 10000;
+    
+    for (int i = 0; i < seconds; ++i) {
+        for (long long int j = 0; j < delayTime; ++j) {
+            count++;
         }
-        if(fuelTank == 0)
-            std::cout << "No fuel in the tank. Please refill!";
+    }
+}
 
+// start engine method
+void Car::startEngine() {
+    if(getFuelTank() > 0){
+        std::cout << "Engine starting. Please wait!" << std::endl;
+    }
+    customDelay(5);
+    while(getFuelTank() > 0) {
+        if(getFuelTank() > 0) {
+            std::cout << "Engine is running... Fuel left: " << getFuelTank() << std::endl;
+            customDelay(1);
+            setFuelTank(getFuelTank() - 1);  
+        }
+
+        if(getFuelTank() == 0)
+            std::cout << "No fuel in the tank. Please refill!" << std::endl;
     }
 }

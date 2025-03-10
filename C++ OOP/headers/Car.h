@@ -13,7 +13,7 @@ private:
     int yearOfProduction = 0;
     int numberOfFeatures = 0;
     float batteryPercentage = 0; // for electric cars
-    float fuelTank = 0;
+    float fuelTank = 100;
     float range = 0;
     char** features = nullptr;
     //added these today
