@@ -13,6 +13,7 @@ private:
     int yearOfProduction = 0;
     int numberOfFeatures = 0;
     float batteryPercentage = 0; // for electric cars
+    float fuelTank = 0;
     float range = 0;
     char** features = nullptr;
     //added these today
@@ -33,7 +34,7 @@ public:
     }
 
     //constructor with parameters
-    Car(std::string manufacturer, std::string brand, int yearOfProduction, char** features, float fuelEfficiency, float horsePower, float torque, float safetyRating, float price, float topSpeed){
+    Car(std::string manufacturer, std::string brand, int yearOfProduction, char** features, float fuelEfficiency, float horsePower, float torque, float safetyRating, float price, float topSpeed, float fuelTank){
         this->setManufacturer(manufacturer);
         this->setBrand(brand);
         this->setYearOfProduction(yearOfProduction);
@@ -69,6 +70,7 @@ public:
             this->features = nullptr;
         }
 
+        fuelTank = car.fuelTank;
         fuelEfficiency = car.fuelEfficiency;
         horsePower = car.horsePower;
         torque = car.torque;
@@ -132,6 +134,10 @@ public:
 
     float getBatteryPercentage() const{
         return this->batteryPercentage;
+    }
+
+    float getFuelTank() const{
+        return this->fuelTank;
     }
 
     float getFuelEfficiency() const{
@@ -231,6 +237,12 @@ public:
         this->batteryPercentage = newBatteryPercentage;
     }
 
+    void setFuelTank(float newFuelTank){
+        if(newFuelTank < 0)
+            throw "The amount of fuel in the tank cannot be negative. Exiting...";
+        this->fuelTank = newFuelTank;
+    }
+
     void setFuelEfficiency(float newFuelEfficiency){
         if(newFuelEfficiency <= 0)
             throw "Fuel efficiency cannot be negative or 0. Exiting...";
@@ -291,8 +303,10 @@ public:
         return *this;
     }
 
+    // methods declaration
     void printInfo();
     static int checkCarsInStock();
+    void startEngine();
 };
 
 float Car::minPrice = 4000.0f;

@@ -1,4 +1,6 @@
 #include <iostream>
+#include <thread>
+#include <chrono>
 #include "../headers/Car.h"
 
 // method for printing info about the cars
@@ -31,6 +33,24 @@ void Car::printInfo(){
         std::cout << "Top speed (Km/h): "<< this->topSpeed << std::endl;
 }
 
+// method for checking how many cars exist
 int Car::checkCarsInStock(){
     std::cout << "Cars available in stock: " << carsInStock;
+}
+
+// start engine method
+
+void Car::startEngine(){
+    while(fuelTank > 0){
+        if(fuelTank > 0){
+            std::cout << "Engine starting. Please wait!" << std::endl;
+            std::this_thread::sleep_for(std::chrono::seconds(5));
+            std::cout << "Engine is running... Fuel left: " << fuelTank << std::endl;
+            std::this_thread::sleep_for(std::chrono::seconds(1));
+            fuelTank--;
+        }
+        if(fuelTank == 0)
+            std::cout << "No fuel in the tank. Please refill!";
+
+    }
 }
