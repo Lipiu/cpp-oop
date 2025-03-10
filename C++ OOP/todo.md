@@ -5,7 +5,6 @@ OVERALL IDEA: Car management sytem
     - maybe replace char** with string
 
     - add methods:
-        - start engine
         - stop engine
         - drive certain distance (lower fuel mileage/battery)
         - refuel / charge battery

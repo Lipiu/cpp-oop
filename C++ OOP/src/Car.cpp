@@ -51,14 +51,19 @@ void customDelay(int seconds) {
 void Car::startEngine() {
     if(getFuelTank() > 0){
         std::cout << "Engine starting. Please wait!" << std::endl;
+        customDelay(5);
     }
-    customDelay(5);
+    else{
+        std::cout << "Cannot start car. No fuel in the tank!" << std::endl;
+        return;
+    }
     while(getFuelTank() > 0) {
-        if(getFuelTank() > 0) {
-            std::cout << "Engine is running... Fuel left: " << getFuelTank() << std::endl;
-            customDelay(1);
-            setFuelTank(getFuelTank() - 1);  
-        }
+        std::cout << "Engine is running... Fuel left: " << getFuelTank() << std::endl;
+        customDelay(5);
+        setFuelTank(getFuelTank() - 1);  
+
+        if(getFuelTank() <= 50 && getFuelTank() > 50 - 1)
+            std::cout << "Half tank remaining..." << std::endl;
 
         if(getFuelTank() == 0)
             std::cout << "No fuel in the tank. Please refill!" << std::endl;
