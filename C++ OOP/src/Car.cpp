@@ -65,7 +65,8 @@ void Car::startEngine() {
         if(getFuelTank() <= 50 && getFuelTank() > 50 - 1)
             std::cout << "Half tank remaining..." << std::endl;
 
-        if(getFuelTank() == 0)
+        if(getFuelTank() == 0){
             std::cout << "No fuel in the tank. Please refill!" << std::endl;
+        }
     }
 }
