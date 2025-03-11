@@ -23,6 +23,7 @@ private:
     float safetyRating = 0;
     float price = 0;
     float topSpeed = 0;
+    bool isEngineRunning;
 
     static float minPrice;
     static int carsInStock;
@@ -45,6 +46,7 @@ public:
         this->setSafetyRating(safetyRating);
         this->setPrice(price);
         this->setTopSpeed(topSpeed);
+        isEngineRunning = false;
 
         carsInStock++;
     }
@@ -307,6 +309,7 @@ public:
     void printInfo();
     static int checkCarsInStock();
     void startEngine();
+    void stopEngine();
 };
 
 float Car::minPrice = 4000.0f;

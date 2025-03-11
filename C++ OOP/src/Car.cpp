@@ -52,21 +52,35 @@ void Car::startEngine() {
     if(this->fuelTank > 0){
         std::cout << "Engine starting. Please wait!" << std::endl;
         customDelay(5);
+        isEngineRunning = true;
     }
     else{
         std::cout << "Cannot start car. No fuel in the tank!" << std::endl;
         return;
     }
-    while(this->fuelTank > 0) {
+    while(this->fuelTank > 0 && isEngineRunning == true) {
         std::cout << "Engine is running... Fuel left: " << this->fuelTank << std::endl;
         customDelay(5);
         setFuelTank(this->fuelTank - 1);  
 
         if(this->fuelTank <= 50 && this->fuelTank > 50 - 1)
             std::cout << "Half tank remaining..." << std::endl;
+    }
+    if(!isEngineRunning)
+        std::cout << "Engine stopped manually." << std::endl;
+    else{
+        std::cout << "Out of fuel. Please refill!" << std::endl;
+    }
+}
 
-        if(this->fuelTank == 0){
-            std::cout << "No fuel in the tank. Please refill!" << std::endl;
-        }
+// stop engine method
+
+void Car::stopEngine(){
+    if(isEngineRunning && this->fuelTank > 0){
+        isEngineRunning = false;
+        std::cout << "Engine stopped manually." << std::endl;
+    }
+    else{
+        std::cout << "Engine stopped because out of fuel." << std::endl;
     }
 }
