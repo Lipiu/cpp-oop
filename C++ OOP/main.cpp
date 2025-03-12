@@ -8,7 +8,7 @@ int main() {
     Car myCar("Toyota", "Supra", 2022, features, 12.5, 382, 368, 5, 50000, 250, 100);
     // myCar.printInfo();
     // myCar.checkCarsInStock();
-    myCar.setFuelTank(1);
+    myCar.setFuelTank(0);
     myCar.startEngine();
     myCar.stopEngine();
     return 0;
