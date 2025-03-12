@@ -5,7 +5,7 @@
 void Car::printInfo(){
         std::cout << std::endl;
         std::cout << "Manufacturer: " << this->manufacturer << std::endl;
-        std::cout << "Brand: " << this->brand;
+        std::cout << "Brand: " << this->brand << std::endl;
         std::cout << "Chassis: "<< this->chassis << std::endl;
         std::cout << "Type of engine: "<< this->typeOfEngine << std::endl;
         std::cout << "Transmission: "<< this->transmissionType << std::endl;
@@ -33,7 +33,7 @@ void Car::printInfo(){
 
 // method for checking how many cars exist
 int Car::checkCarsInStock(){
-    std::cout << "Cars available in stock: " << carsInStock;
+    std::cout << "Cars available in stock: " << carsInStock << std::endl;
 }
 
 void customDelay(int seconds) {
@@ -83,7 +83,6 @@ void Car::startEngine() {
 }
 
 // stop engine method
-
 void Car::stopEngine(){
     if(isEngineRunning){
         isEngineRunning = false;
@@ -91,5 +90,26 @@ void Car::stopEngine(){
     }
     else{
         std::cout << "Engine is already off." << std::endl;
+    }
+}
+
+// method to simulate driving -> to do
+void Car::drive(float distance){
+    if(!isEngineRunning){
+        std::cout << "Cannot drive. Engine is stopped!" << std::endl;
+        return ;
+    }
+
+    float maxDistance = fuelTank * fuelEfficiency;
+    if(distance <= maxDistance){
+        fuelTank -= (distance / fuelEfficiency);
+        range += distance;
+        std::cout << "Drove " << distance << " km. Total range: " << range << " km" << std::endl;
+    }
+    else{
+        range += maxDistance;
+        fuelTank = 0;
+        isEngineRunning = false;
+        std::cout << "Out of fuel. Car stopped after " << range << " km" << std::endl;
     }
 }

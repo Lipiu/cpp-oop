@@ -35,7 +35,10 @@ public:
     }
 
     //constructor with parameters
-    Car(std::string manufacturer, std::string brand, int yearOfProduction, char** features, float fuelEfficiency, float horsePower, float torque, float safetyRating, float price, float topSpeed, float fuelTank){
+    Car(std::string manufacturer, std::string brand, int yearOfProduction, char** features, 
+        float fuelEfficiency, float horsePower, float torque, float safetyRating, float price, 
+        float topSpeed, float fuelTank, float range) {
+    
         this->setManufacturer(manufacturer);
         this->setBrand(brand);
         this->setYearOfProduction(yearOfProduction);
@@ -46,10 +49,13 @@ public:
         this->setSafetyRating(safetyRating);
         this->setPrice(price);
         this->setTopSpeed(topSpeed);
+        this->setFuelTank(fuelTank);
+        this->range = range;
+    
         isEngineRunning = false;
-
         carsInStock++;
     }
+    
 
     //copy constructor
     Car(const Car& car){
@@ -310,6 +316,7 @@ public:
     static int checkCarsInStock();
     void startEngine();
     void stopEngine();
+    void drive(float distance);
 };
 
 float Car::minPrice = 4000.0f;
