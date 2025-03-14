@@ -314,7 +314,7 @@ public:
 
     // methods declaration
     void printInfo();
-    static int checkCarsInStock();
+    void checkCarsInStock();
     void startEngine();
     void stopEngine();
     void drive(float distance);
@@ -323,4 +323,4 @@ public:
 
 float Car::minPrice = 4000.0f;
 int Car::carsInStock = 0;
-float Car::maxFuelTankCapacity = 100;
+float Car::maxFuelTankCapacity = 100; // all cars come with a fuel tank from factory

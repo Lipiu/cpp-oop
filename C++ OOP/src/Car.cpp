@@ -32,7 +32,7 @@ void Car::printInfo(){
 }
 
 // method for checking how many cars exist
-int Car::checkCarsInStock(){
+void Car::checkCarsInStock(){
     std::cout << "Cars available in stock: " << carsInStock << std::endl;
 }
 
@@ -123,19 +123,15 @@ void Car::refuel(){
 
     std::string input;
     std::cout << "Current fuel level: " << fuelTank << std::endl;
-    std::cout << "Do you want to refuel? " << std::endl;
+    std::cout << "Do you want to refuel?: ";
     std::cin >> input;
 
-    for(int i = 0; i < input.length(); i++){
-        for (int i = 0; i < input.length(); i++) {
-            if (input[i] >= 'A' && input[i] <= 'Z') {
-                input[i] = input[i] + ('a' - 'A');
-            }
+    for (int i = 0; i < input.length(); i++) {
+        if (input[i] >= 'A' && input[i] <= 'Z') {
+            input[i] = input[i] + ('a' - 'A');
         }
     }
-    float refuelAmount = 0;
-    std::cout << "How many liters?: ";
-        
+       
     if(input == "yes"){
         float refuelAmount = 0;
         std::cout << "How many liters?: ";

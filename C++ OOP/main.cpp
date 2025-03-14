@@ -10,11 +10,11 @@ int main() {
     //std::cout << "Range before drive: " << myCar.getRange() << std::endl;
     //myCar.printInfo();
     //myCar.checkCarsInStock();
-    myCar.setFuelTank(70);
+    myCar.setFuelTank(60);
     myCar.refuel();
-    std::cout << myCar.getFuelTank();
+    //std::cout << myCar.getFuelTank();
     //myCar.startEngine();
-    //myCar.drive(500);
+    myCar.drive(500);
     
     return 0;
 }
