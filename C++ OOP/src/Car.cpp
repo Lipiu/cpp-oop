@@ -79,7 +79,7 @@ void Car::stopEngine(){
     }
 }
 
-// method to simulate driving -> to do
+// method to simulate driving
 void Car::drive(float distance){
     if(!isEngineRunning){
         std::cout << "Cannot drive. Engine is stopped!" << std::endl;
@@ -138,4 +138,56 @@ void Car::refuel(){
         }
         std::cout << "Car refueled. Current fuel level: " << tankAfterRefill << "L" << std::endl;
     }
+}
+
+// method to search a car by a certain attribute
+void Car::searchByAttribute(){
+    std::cout << "Here you can search for a car by attributes! (type stop to exit the loop)" << std::endl;
+    std::cout << "Please enter one of the following attributes:\n";
+    std::cout << "Manufacturer\nModel\nYear of production(year)\nTransmission type(transmission)\n";
+    std::cout << "Engine fuel(fuel)\nHorse power(hp)\nSafety rating(safety)\nTop speed(speed)\nPrice\n";
+
+    while(true){
+        std::string userInput;
+        std::cin >> userInput;
+
+        for(int i = 0; i < userInput.length(); i++)
+            userInput[i] = tolower(userInput[i]);
+
+        if (userInput == "manufacturer") {
+            std::cout << "Manufacturer: " << this->manufacturer << std::endl;
+        } 
+        else if (userInput == "model") {
+            std::cout << "Model: " << this->model << std::endl;
+        } 
+        else if (userInput == "year") {
+            std::cout << "Year of Production: " << this->yearOfProduction << std::endl;
+        }
+        else if (userInput == "transmission") {
+            std::cout << "Transmission Type: " << this->transmissionType << std::endl;
+        }
+        else if (userInput == "fuel") {
+            std::cout << "Type of Engine: " << this->typeOfEngine << std::endl;
+        }
+        else if (userInput == "hp") {
+            std::cout << "Horse Power: " << this->horsePower << " HP" << std::endl;
+        }
+        else if (userInput == "safety") {
+            std::cout << "Safety Rating: " << this->safetyRating << "/5" << std::endl;
+        }
+        else if (userInput == "speed") {
+            std::cout << "Top Speed: " << this->topSpeed << " km/h" << std::endl;
+        }
+        else if (userInput == "price") {
+            std::cout << "Price: $" << this->price << std::endl;
+        }
+        else if(userInput == "stop"){
+            break;
+        }
+        else {
+            std::cout << "Invalid attribute! Please enter a valid option." << std::endl;
+        }
+
+    }
+
 }

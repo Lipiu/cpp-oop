@@ -252,6 +252,7 @@ public:
     void stopEngine();
     void drive(float distance);
     void refuel();
+    void searchByAttribute();
 };
 
 int Car::carsInStock = 0;

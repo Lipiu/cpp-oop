@@ -2,15 +2,8 @@ OVERALL IDEA: Car management sytem
 
     TODO for next time:
 
-    - maybe replace char** with string
-    - check why features are not showing
-    - check why fuel efficiency is 0
-
     - add methods:
-        - compare cars (horsepower)
         - search/filter cars by attributes
-        - method for static variable minPrice
-        - calculate average consumption
 
     - add classes:
         - Garage
