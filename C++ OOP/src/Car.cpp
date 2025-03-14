@@ -127,9 +127,19 @@ void Car::refuel(){
     std::cin >> input;
 
     for(int i = 0; i < input.length(); i++){
+        for (int i = 0; i < input.length(); i++) {
+            if (input[i] >= 'A' && input[i] <= 'Z') {
+                input[i] = input[i] + ('a' - 'A');
+            }
+        }
+    }
+    float refuelAmount = 0;
+    std::cout << "How many liters?: ";
+        
+    if(input == "yes"){
         float refuelAmount = 0;
         std::cout << "How many liters?: ";
-        
+    
         // input validation
         while(!(std::cin >> refuelAmount) || refuelAmount <= 0){
             std::cin.clear();
@@ -138,12 +148,12 @@ void Car::refuel(){
         }
 
         // prevent overfilling
-        if(fuelTank + refuelAmount < maxFuelTankCapacity)
+        float tankAfterRefill = fuelTank + refuelAmount;
+        if(tankAfterRefill < maxFuelTankCapacity)
             fuelTank = maxFuelTankCapacity;
         else{
             fuelTank += refuelAmount;
         }
-
-        std::cout << "Car refueled. Current fuel level: " << fuelTank << "L" << std::endl;
+        std::cout << "Car refueled. Current fuel level: " << tankAfterRefill << "L" << std::endl;
     }
 }
