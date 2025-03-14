@@ -9,20 +9,7 @@ void Car::printInfo(){
         std::cout << "Chassis: "<< this->chassis << std::endl;
         std::cout << "Transmission: "<< this->transmissionType << std::endl;
         std::cout << "Production year: "<< this->yearOfProduction << std::endl;
-        std::cout << "Number of features: "<< this->numberOfFeatures << std::endl;
-        std::cout << "Range: "<< this->range << std::endl;
-
-        if(this->features != nullptr){
-            std::cout << "Features: ";
-            for(int i = 0; i < this->numberOfFeatures; i++){
-                std:: cout << this->features[i];
-                if(i < this->numberOfFeatures - 1)
-                    std::cout << ",";
-            }
-            std::cout << std::endl;
-        }
-
-        std::cout << "Fuel efficiency (L/KM): "<< this->fuelEfficiency << std::endl;
+        std::cout << "Features: " << this->features << std::endl;
         std::cout << "Horse power (hp): "<< this->horsePower << std::endl;
         std::cout << "Torque (NM): "<< this->torque << std::endl;
         std::cout << "Safety rating (1 [lowest] - 5 [highest]): "<< this->safetyRating << std::endl;

@@ -11,11 +11,10 @@ private:
     std::string typeOfEngine = ""; // diesel, gasoline or hybrid
     std::string transmissionType = "";
     int yearOfProduction = 0;
-    int numberOfFeatures = 0;
     float batteryPercentage = 0; // for electric cars
     float fuelTank = 100;
     float range = 0;
-    char** features = nullptr;
+    std::string features = "";
     //added these today
     float fuelEfficiency = 0;
     float horsePower = 0;
@@ -36,22 +35,20 @@ public:
 
     //constructor with parameters
     Car(std::string manufacturer, std::string model, std::string chassis, std::string transmission, int yearOfProduction,  
-        char** features, float horsePower, float torque, float safetyRating, float price, 
-        float topSpeed, float fuelTank, float range) {
+        std::string features, float horsePower, float torque, float safetyRating, float price, 
+        float topSpeed) {
     
         this->setManufacturer(manufacturer);
         this->setModel(model);
         this->setChassis(chassis);
         this->setTransmission(transmission);
         this->setYearOfProduction(yearOfProduction);
-        this->setFeatures(features, numberOfFeatures);
+        this->setFeatures(features);
         this->setHorsePower(horsePower);
         this->setTorque(torque);
         this->setSafetyRating(safetyRating);
         this->setPrice(price);
         this->setTopSpeed(topSpeed);
-        this->setFuelTank(fuelTank);
-        this->range = range;
     
         isEngineRunning = false;
         carsInStock++;
@@ -65,22 +62,7 @@ public:
         chassis = car.chassis;
         transmissionType = car.transmissionType;
         yearOfProduction = car.yearOfProduction;
-
-        //Creating deep copy in order to avoid shallow copy 
-        if(car.features != nullptr){
-            numberOfFeatures = car.numberOfFeatures;
-        
-            this->features = new char*[numberOfFeatures];
-
-            for(int i = 0; i < numberOfFeatures; i++){
-                this->features[i] = new char[strlen(car.features[i]) + 1];
-                strcpy(this->features[i], car.features[i]);
-            }
-        }
-        else{
-            this->features = nullptr;
-        }
-
+        features = car.features;
         horsePower = car.horsePower;
         torque = car.torque;
         fuelEfficiency = car.fuelEfficiency;
@@ -90,17 +72,6 @@ public:
         fuelTank = car.fuelTank;
 
         carsInStock++;
-    }
-
-    //destructor
-    ~Car(){
-        for(int i = 0; i < numberOfFeatures; i++){
-            delete[] this->features[i];
-        }
-        delete[] this->features;
-        this->features = nullptr;
-
-        carsInStock--;
     }
 
     //getters
@@ -120,19 +91,8 @@ public:
         return this->transmissionType;
     }
 
-    char** getFeatures() const{
-        char** copy = new char*[this->numberOfFeatures + 1];
-
-        for(int i = 0; i < this->numberOfFeatures; i++){
-            copy[i] = new char[strlen(this->features[i]) + 1];
-            strcpy(copy[i], this->features[i]);
-        }
-
-        return copy;
-    }
-
-    int getNumberOfFeatures() const{
-        return this->numberOfFeatures;
+    std::string getFeatures() const{
+        return this->features;
     }
 
     std::string getChassis() const{
@@ -208,26 +168,10 @@ public:
         this->transmissionType = transmissionType;
     }
 
-    void setFeatures(char** newFeatures, int newNumberOfFeatures){
-        if(newFeatures != nullptr){
-            char** copy = new char*[newNumberOfFeatures];
-
-            for(int i = 0; i < newNumberOfFeatures; i++){
-                copy[i] = new char[strlen(newFeatures[i]) + 1];
-                strcpy(copy[i], newFeatures[i]);
-            }
-            if(features != nullptr){
-                for(int i = 0; i < numberOfFeatures; i++)
-                    delete[] this->features[i];
-                delete[] this->features;
-            }
-
-            this->features = copy;
-            this->numberOfFeatures = newNumberOfFeatures;
-        }
-        else{
-            throw "Features field cannot be left empty. Exiting...";
-        }
+    void setFeatures(std::string newFeatures){
+        if(newFeatures.empty())
+            throw "Features field cannot be empty. Exiting...";
+        this->features = newFeatures;
     }
 
     void setChassis(std::string newChassis){
@@ -299,27 +243,7 @@ public:
     }
 
     //operator
-    Car& operator=(const Car& car){
-        //to prevent car1 = car1
-        if(this == &car){
-            return *this;
-        }
-
-        if(this->features != nullptr){
-            for(int i = 0; i < numberOfFeatures; i++)
-                delete[] this->features[i];
-            delete[] this->features;
-            this->features = nullptr;
-        }
-
-        this->numberOfFeatures = car.numberOfFeatures;
-        this->features = new char*[numberOfFeatures];
-        for(int i = 0; i < numberOfFeatures; i++){
-            this->features[i] = new char[strlen(car.features[i]) + 1];
-            strcpy(this->features[i], car.features[i]);
-        }
-        return *this;
-    }
+    
 
     // methods declaration
     void printInfo();

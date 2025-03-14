@@ -3,9 +3,8 @@
 #include "src/Car.cpp"
 
 int main() {
-    char* features[] = { (char*)"Sunroof", (char*)"Leather Seats", (char*)"Bluetooth" };
-    
-    Car myCar("Toyota", "Supra", "Sedan", "6 speed manual", 2002, features, 400, 15, 320, 350, 4, 10000, 250);
+    std::string features = "Bluetooth, heated seats, parking sensors, 360 camera";
+    Car myCar("BMW", "M5", "Sedan", "ZF8HP", 2022, features, 500, 600, 5, 50000, 300);
     //myCar.setFuelEfficiency(5);
     //std::cout << "Range before drive: " << myCar.getRange() << std::endl;
     myCar.printInfo();
