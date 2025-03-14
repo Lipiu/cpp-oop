@@ -113,3 +113,37 @@ void Car::drive(float distance){
         std::cout << "Out of fuel. Car stopped after " << range << " km" << std::endl;
     }
 }
+
+// method to refuel
+void Car::refuel(){
+    if(fuelTank >= maxFuelTankCapacity){
+        std::cout << "Tank is already full!" << std::endl;
+        return ;
+    }
+
+    std::string input;
+    std::cout << "Current fuel level: " << fuelTank << std::endl;
+    std::cout << "Do you want to refuel? " << std::endl;
+    std::cin >> input;
+
+    for(int i = 0; i < input.length(); i++){
+        float refuelAmount = 0;
+        std::cout << "How many liters?: ";
+        
+        // input validation
+        while(!(std::cin >> refuelAmount) || refuelAmount <= 0){
+            std::cin.clear();
+            std::cin.ignore(10000, '\n');
+            std::cout << "Invalid input. Please enter valid value!" << std::endl;
+        }
+
+        // prevent overfilling
+        if(fuelTank + refuelAmount < maxFuelTankCapacity)
+            fuelTank = maxFuelTankCapacity;
+        else{
+            fuelTank += refuelAmount;
+        }
+
+        std::cout << "Car refueled. Current fuel level: " << fuelTank << "L" << std::endl;
+    }
+}

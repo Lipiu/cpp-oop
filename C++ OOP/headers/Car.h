@@ -27,6 +27,7 @@ private:
 
     static float minPrice;
     static int carsInStock;
+    static float maxFuelTankCapacity;
 
 public:
     //default constructor
@@ -317,7 +318,9 @@ public:
     void startEngine();
     void stopEngine();
     void drive(float distance);
+    void refuel();
 };
 
 float Car::minPrice = 4000.0f;
 int Car::carsInStock = 0;
+float Car::maxFuelTankCapacity = 100;
