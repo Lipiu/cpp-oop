@@ -6,7 +6,7 @@
 class Car{
 private:
     std::string manufacturer = "";
-    std::string brand = "";
+    std::string model = "";
     std::string chassis = "";
     std::string typeOfEngine = ""; // diesel, gasoline or hybrid
     std::string transmissionType = "";
@@ -25,7 +25,6 @@ private:
     float topSpeed = 0;
     bool isEngineRunning;
 
-    static float minPrice;
     static int carsInStock;
     static float maxFuelTankCapacity;
 
@@ -36,15 +35,16 @@ public:
     }
 
     //constructor with parameters
-    Car(std::string manufacturer, std::string brand, int yearOfProduction, char** features, 
-        float fuelEfficiency, float horsePower, float torque, float safetyRating, float price, 
+    Car(std::string manufacturer, std::string model, std::string chassis, std::string transmission, int yearOfProduction,  
+        char** features, float horsePower, float torque, float safetyRating, float price, 
         float topSpeed, float fuelTank, float range) {
     
         this->setManufacturer(manufacturer);
-        this->setBrand(brand);
+        this->setModel(model);
+        this->setChassis(chassis);
+        this->setTransmission(transmission);
         this->setYearOfProduction(yearOfProduction);
         this->setFeatures(features, numberOfFeatures);
-        this->setFuelEfficiency(fuelEfficiency);
         this->setHorsePower(horsePower);
         this->setTorque(torque);
         this->setSafetyRating(safetyRating);
@@ -61,7 +61,9 @@ public:
     //copy constructor
     Car(const Car& car){
         manufacturer = car.manufacturer;
-        brand = car.brand;
+        model = car.model;
+        chassis = car.chassis;
+        transmissionType = car.transmissionType;
         yearOfProduction = car.yearOfProduction;
 
         //Creating deep copy in order to avoid shallow copy 
@@ -79,13 +81,13 @@ public:
             this->features = nullptr;
         }
 
-        fuelTank = car.fuelTank;
-        fuelEfficiency = car.fuelEfficiency;
         horsePower = car.horsePower;
         torque = car.torque;
+        fuelEfficiency = car.fuelEfficiency;
         safetyRating = car.safetyRating;
         price = car.price;
         topSpeed = car.topSpeed;
+        fuelTank = car.fuelTank;
 
         carsInStock++;
     }
@@ -106,16 +108,20 @@ public:
         return this->manufacturer;
     }
 
-    std::string getBrand() const{
-        return this->brand;
+    std::string getModel() const{
+        return this->model;
     }
 
     int getYearOfProduction() const{
         return this->yearOfProduction;
     }
 
+    std::string getTransmission() const{
+        return this->transmissionType;
+    }
+
     char** getFeatures() const{
-        char** copy = new char*[this->numberOfFeatures];
+        char** copy = new char*[this->numberOfFeatures + 1];
 
         for(int i = 0; i < this->numberOfFeatures; i++){
             copy[i] = new char[strlen(this->features[i]) + 1];
@@ -173,10 +179,6 @@ public:
         return this->topSpeed;
     }
 
-    static float getMinPrice(){
-        return minPrice;
-    }
-
     //setters
     void setManufacturer(std::string newManufacturer){
         if(newManufacturer.empty()){
@@ -186,11 +188,11 @@ public:
         this->manufacturer = newManufacturer;
     }
 
-    void setBrand(std::string newBrand){
-        if(newBrand.empty()){
-            throw "Brand field should not be empty! Exiting...";
+    void setModel(std::string newModel){
+        if(newModel.empty()){
+            throw "Model field should not be empty! Exiting...";
         }
-        this->brand = newBrand;
+        this->model = newModel;
     }
 
     void setYearOfProduction(int yearOfProduction){
@@ -198,6 +200,12 @@ public:
             throw "First car was invented in 1885. Please enter valid year of production! Exiting...";
         }
         this->yearOfProduction = yearOfProduction;
+    }
+
+    void setTransmission(std::string transmissionType){
+        if(transmissionType.empty())
+            throw "Transmission field cannot be left empty! Exiting...";
+        this->transmissionType = transmissionType;
     }
 
     void setFeatures(char** newFeatures, int newNumberOfFeatures){
@@ -278,14 +286,15 @@ public:
     }
 
     void setPrice(float newPrice){
-        if(newPrice < minPrice)
-            throw "Minimum price is 4000";
+        if(newPrice <= 0){
+            throw "Price cannot be zero/negative. Please enter a valid value!";
+        }
         this->price = newPrice;
     }
 
     void setTopSpeed(float newTopSpeed){
-        if(newTopSpeed < 180)
-            throw "Top speed must be at least 180";
+        if(newTopSpeed <= 0)
+            throw "Top speed must cannot be zero/negative. Please enter a valid value!";
         this->topSpeed = newTopSpeed;
     }
 
@@ -321,6 +330,5 @@ public:
     void refuel();
 };
 
-float Car::minPrice = 4000.0f;
 int Car::carsInStock = 0;
 float Car::maxFuelTankCapacity = 100; // all cars come with a fuel tank from factory

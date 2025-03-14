@@ -5,9 +5,8 @@
 void Car::printInfo(){
         std::cout << std::endl;
         std::cout << "Manufacturer: " << this->manufacturer << std::endl;
-        std::cout << "Brand: " << this->brand << std::endl;
+        std::cout << "Model: " << this->model << std::endl;
         std::cout << "Chassis: "<< this->chassis << std::endl;
-        std::cout << "Type of engine: "<< this->typeOfEngine << std::endl;
         std::cout << "Transmission: "<< this->transmissionType << std::endl;
         std::cout << "Production year: "<< this->yearOfProduction << std::endl;
         std::cout << "Number of features: "<< this->numberOfFeatures << std::endl;
@@ -131,7 +130,7 @@ void Car::refuel(){
             input[i] = input[i] + ('a' - 'A');
         }
     }
-       
+
     if(input == "yes"){
         float refuelAmount = 0;
         std::cout << "How many liters?: ";
@@ -145,7 +144,7 @@ void Car::refuel(){
 
         // prevent overfilling
         float tankAfterRefill = fuelTank + refuelAmount;
-        if(tankAfterRefill < maxFuelTankCapacity)
+        if(tankAfterRefill > maxFuelTankCapacity)
             fuelTank = maxFuelTankCapacity;
         else{
             fuelTank += refuelAmount;

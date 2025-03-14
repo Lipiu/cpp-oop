@@ -3,14 +3,14 @@ OVERALL IDEA: Car management sytem
     TODO for next time:
 
     - maybe replace char** with string
+    - check why features are not showing
+    - check why fuel efficiency is 0
 
     - add methods:
-        - calculate average consumption
-        - refuel
         - compare cars (horsepower)
-        - check if the destructor works as intended
         - search/filter cars by attributes
         - method for static variable minPrice
+        - calculate average consumption
 
     - add classes:
         - Garage
