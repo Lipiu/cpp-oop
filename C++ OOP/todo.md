@@ -3,7 +3,7 @@ OVERALL IDEA: Car management sytem
     TODO for next time:
 
     - add methods:
-        - search/filter cars by attributes
+        - search/filter cars by attributes -> not finished
 
     - add classes:
         - Garage
