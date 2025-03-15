@@ -112,6 +112,7 @@ public:
 
     // methods
     void printInfoCustomer();
+    void purchaseCar();
 };
 
 int Customer::carPurchased = 0;

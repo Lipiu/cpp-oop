@@ -1,7 +1,8 @@
 #include <iostream>
 #include "../headers/Customer.h"
+#include "../headers/Car.h"
 
-// print info
+// Print info
 void Customer::printInfoCustomer(){
     std::cout << "First name: " << this->firstName << std::endl;
     std::cout << "Last name: " << this->lastName << std::endl;
@@ -9,3 +10,6 @@ void Customer::printInfoCustomer(){
     std::cout << "Email: " << this->email << std::endl;
     std::cout << "Budget: " << this->budget << std::endl;
 }
+
+// Purchase car
+

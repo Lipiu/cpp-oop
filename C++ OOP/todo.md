@@ -9,6 +9,9 @@ OVERALL IDEA: Car management sytem
         - Garage
             - add or remove cars from garage
         - Customers
+            - methods:
+                - buy car
+                - sell car
         - Sales
             - keep track of transactions
         - Maintenance Record
