@@ -246,7 +246,7 @@ public:
     
 
     // methods declaration
-    void printInfo();
+    void printInfoCar();
     void checkCarsInStock();
     void startEngine();
     void stopEngine();

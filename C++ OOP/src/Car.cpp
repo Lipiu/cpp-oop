@@ -2,7 +2,7 @@
 #include "../headers/Car.h"
 
 // method for printing info about the cars
-void Car::printInfo(){
+void Car::printInfoCar(){
         std::cout << std::endl;
         std::cout << "Manufacturer: " << this->manufacturer << std::endl;
         std::cout << "Model: " << this->model << std::endl;
