@@ -140,6 +140,15 @@ void Car::refuel(){
     }
 }
 
+// decrease cars in stock
+void Car::decreaseStock(){
+    if(carsInStock > 0)
+        carsInStock--;
+    else
+        std::cout << "Car is out of stock!" << std::endl;
+
+}
+
 // method to search a car by a certain attribute
 void Car::searchByAttribute(){
     std::cout << "Here you can search for a car by attributes! (type stop to exit the loop)" << std::endl;

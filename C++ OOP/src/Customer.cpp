@@ -12,4 +12,15 @@ void Customer::printInfoCustomer(){
 }
 
 // Purchase car
+void Customer::purchaseCar(Car& car){
 
+    if(this->budget < car.getPrice())
+        std::cout << "Insufficient funds.";
+    else if(car.getCarsInStock() <= 0)
+        std::cout << "The car is out of stock!";
+    else{
+        std::cout << "Purchase successful. You bought: " << car.getManufacturer() << " " << car.getModel() << std::endl; 
+        carPurchased++;
+        car.decreaseStock();
+    }
+}

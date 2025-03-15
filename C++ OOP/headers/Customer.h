@@ -1,4 +1,6 @@
+#pragma once
 #include <iostream>
+#include "Car.h"
 
 class Customer{
 private:
@@ -112,7 +114,7 @@ public:
 
     // methods
     void printInfoCustomer();
-    void purchaseCar();
+    void purchaseCar(Car& car);
 };
 
 int Customer::carPurchased = 0;

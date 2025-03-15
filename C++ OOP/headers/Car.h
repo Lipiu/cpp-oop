@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <string>
 #include <cstring>
@@ -23,8 +24,7 @@ private:
     float price = 0;
     float topSpeed = 0;
     bool isEngineRunning;
-
-    static int carsInStock;
+    int carsInStock = 0;
     static float maxFuelTankCapacity;
 
 public:
@@ -77,6 +77,10 @@ public:
     //getters
     std::string getManufacturer() const{
         return this->manufacturer;
+    }
+
+    int getCarsInStock() const{
+        return this->carsInStock;
     }
 
     std::string getModel() const{
@@ -146,6 +150,12 @@ public:
         }
 
         this->manufacturer = newManufacturer;
+    }
+
+    void setCarsInStock(int newCarsInStock){
+        if(newCarsInStock <= 0)
+            throw "Out of stock!";
+        this->carsInStock = newCarsInStock;
     }
 
     void setModel(std::string newModel){
@@ -252,8 +262,9 @@ public:
     void stopEngine();
     void drive(float distance);
     void refuel();
+    void decreaseStock();
     void searchByAttribute();
 };
 
-int Car::carsInStock = 0;
+//int Car::carsInStock = 0;
 float Car::maxFuelTankCapacity = 100; // all cars come with a fuel tank from factory

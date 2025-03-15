@@ -2,16 +2,14 @@ OVERALL IDEA: Car management sytem
 
     TODO for next time:
 
+    - method check cars in stock has to check for ALL cars (now it searches only for one)
+
     - add methods:
         - search/filter cars by attributes -> not finished
 
     - add classes:
         - Garage
             - add or remove cars from garage
-        - Customers
-            - methods:
-                - buy car
-                - sell car
         - Sales
             - keep track of transactions
         - Maintenance Record
