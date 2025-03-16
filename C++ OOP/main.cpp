@@ -13,8 +13,9 @@ int main() {
     //myCar.printInfoCar();
     Customer c;
     c.setBudget(100000);
-    c.purchaseCar(myCar2);
-    myCar2.checkCarsInStock();
+    c.purchaseCar(myCar);
+    c.purchaseCar(myCar);
+    myCar.checkCarsInStock();
     std:: cout << "Budget after buying car: " << c.getBudget();
     std::cout << "\n";
     //myCar.searchByAttribute();
