@@ -21,6 +21,7 @@ void Customer::purchaseCar(Car& car){
     else{
         std::cout << "Purchase successful. You bought: " << car.getManufacturer() << " " << car.getModel() << std::endl; 
         carPurchased++;
+        this->budget = this->budget - car.getPrice();
         car.decreaseStock();
     }
 }
