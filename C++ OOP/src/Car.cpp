@@ -19,7 +19,7 @@ void Car::printInfoCar(){
 
 // method for checking how many cars exist
 void Car::checkCarsInStock(){
-    std::cout << "Cars available in stock: " << carsInStock << std::endl;
+    std::cout << this->manufacturer << " " << this->model << " available in stock: " << carsInStock << std::endl;
 }
 
 void customDelay(int seconds) {
@@ -153,7 +153,7 @@ void Car::decreaseStock(){
 void Car::searchByAttribute(){
     std::cout << "Here you can search for a car by attributes! (type stop to exit the loop)" << std::endl;
     std::cout << "Please enter one of the following attributes:\n";
-    std::cout << "Manufacturer\nModel\nYear of production(year)\nTransmission type(transmission)\n";
+    std::cout << "Manufacturer\nModel\nYear of production(year)\nTransmission type(transmission)\nStock\n";
     std::cout << "Engine fuel(fuel)\nHorse power(hp)\nSafety rating(safety)\nTop speed(speed)\nPrice\n";
 
     while(true){
@@ -174,6 +174,9 @@ void Car::searchByAttribute(){
         }
         else if (userInput == "transmission") {
             std::cout << "Transmission Type: " << this->transmissionType << std::endl;
+        }
+        else if(userInput == "stock"){
+            std::cout << this->manufacturer << " " << this->model << " stock: " << getCarsInStock() << std::endl;
         }
         else if (userInput == "fuel") {
             std::cout << "Type of Engine: " << this->typeOfEngine << std::endl;

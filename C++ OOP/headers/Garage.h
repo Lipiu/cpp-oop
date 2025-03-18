@@ -8,7 +8,9 @@ private:
     int currentCarCount = 0;
 
 public:
-    Garage(){};
+    Garage(){
+        std::cout << "Available cars: " << this->getAvailableCars() << std::endl;
+    };
 
     //getters
     std::string getCar() const{
