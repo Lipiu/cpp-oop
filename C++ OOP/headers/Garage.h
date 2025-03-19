@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include "Car.h"
 
@@ -5,12 +6,10 @@ class Garage{
 private:
     std::string car = "";
     int capacity = 0;
-    int currentCarCount = 0;
+    static int totalCars;
 
 public:
-    Garage(){
-        std::cout << "Available cars: " << this->getAvailableCars() << std::endl;
-    };
+    Garage(){};
 
     //getters
     std::string getCar() const{
@@ -21,9 +20,6 @@ public:
         return this->capacity;
     }
 
-    int currentCarCount() const{
-        return this->currentCarCount;
-    }
 
     //setters
     void setCapacity(int newCapacity){
@@ -32,15 +28,9 @@ public:
         this->capacity = newCapacity;
     }
 
-    void setCurrentCarCount(int newCurrentCarCount){
-        if(newCurrentCarCount < 0)
-            throw "Car count cannot be negative.";
-        this->currentCarCount = newCurrentCarCount;
-    }
-
     //methods
+    void getAvailableTotalStock();
     void addCar(const Car& car);
     void removeCar(const Car& car);
-    std::string getAvailableCars();
-    int getAvailableStock();
+    static int getTotalCars();
 };

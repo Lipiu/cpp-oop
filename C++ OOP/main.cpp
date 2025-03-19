@@ -2,6 +2,8 @@
 #include <cstring>
 #include "src/Car.cpp"
 #include "src/Customer.cpp"
+#include "headers/Garage.h"
+#include "src/Garage.cpp"
 
 int main() {
     std::string features = "Bluetooth, heated seats, parking sensors, 360 camera";
