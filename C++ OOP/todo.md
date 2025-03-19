@@ -9,7 +9,6 @@ OVERALL IDEA: Car management sytem
         - Garage
             - check whole stock
             - add or remove cars from garage
-            - here i will track the cars with checkCarsInStock
         - Sales
             - keep track of transactions
         - Maintenance Record

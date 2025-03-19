@@ -16,6 +16,7 @@ int main() {
     g.addCar(myCar2);
     g.addCar(myCar3);
     g.addCar(myCar4);
+    g.removeCar(myCar4);
     //myCar.setFuelEfficiency(5);
     //std::cout << "Range before drive: " << myCar.getRange() << std::endl;
     //myCar.printInfoCar();

@@ -8,6 +8,10 @@ void Garage::addCar(const Car& car){
     totalCars++;
 }
 
+void Garage::removeCar(const Car& car){
+    totalCars--;
+}
+
 int Garage::getTotalCars(){
     std::cout << "Total cars " << totalCars << std::endl;
     return 0;
