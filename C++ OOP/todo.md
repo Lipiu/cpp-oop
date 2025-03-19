@@ -6,9 +6,6 @@ OVERALL IDEA: Car management sytem
         - search/filter cars by attributes -> not finished
 
     - add classes:
-        - Garage
-            - check whole stock
-            - add or remove cars from garage
         - Sales
             - keep track of transactions
         - Maintenance Record
