@@ -2,6 +2,13 @@
 #include "../headers/Garage.h"
 #include <iostream>
 
-void Garage::getAvailableTotalStock(){
-    std::cout << "Total cars in stock: " << this->currentCarCount << std::endl;
+int Garage::totalCars = 0;
+
+void Garage::addCar(const Car& car){
+    totalCars++;
+}
+
+int Garage::getTotalCars(){
+    std::cout << "Total cars " << totalCars << std::endl;
+    return 0;
 }

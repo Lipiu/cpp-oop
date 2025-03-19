@@ -11,6 +11,11 @@ int main() {
     Car myCar2("Toyota", "Supra", "Coupe", "Manual transmission", 2003, features, 300, 320, 3, 20000, 200);
     Car myCar3 = myCar2;
     Car myCar4 = myCar;
+    Garage g;
+    g.addCar(myCar);
+    g.addCar(myCar2);
+    g.addCar(myCar3);
+    g.addCar(myCar4);
     //myCar.setFuelEfficiency(5);
     //std::cout << "Range before drive: " << myCar.getRange() << std::endl;
     //myCar.printInfoCar();
@@ -22,6 +27,7 @@ int main() {
     std::cout << "\n";
     //myCar.searchByAttribute();
     myCar.checkCarsInStock();
+    g.getTotalCars();
     //myCar2.searchByAttribute();
     //myCar.setFuelTank(60);
     //myCar.refuel();
