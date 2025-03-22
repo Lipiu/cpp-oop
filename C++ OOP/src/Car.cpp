@@ -6,7 +6,6 @@ void Car::printInfoCar(){
         std::cout << std::endl;
         std::cout << "Manufacturer: " << this->manufacturer << std::endl;
         std::cout << "Model: " << this->model << std::endl;
-        std::cout << "Chassis: "<< this->chassis << std::endl;
         std::cout << "Transmission: "<< this->transmissionType << std::endl;
         std::cout << "Production year: "<< this->yearOfProduction << std::endl;
         std::cout << "Features: " << this->features << std::endl;

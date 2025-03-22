@@ -12,6 +12,7 @@ int main() {
     Car myCar3 = myCar2;
     Car myCar4 = myCar;
     Garage g;
+    std::cout << "size of car class: " << sizeof(myCar);
     g.addCar(myCar);
     g.addCar(myCar2);
     g.addCar(myCar3);

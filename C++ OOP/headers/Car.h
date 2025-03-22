@@ -8,15 +8,12 @@ class Car{
 private:
     std::string manufacturer = "";
     std::string model = "";
-    std::string chassis = "";
     std::string typeOfEngine = ""; // diesel, gasoline or hybrid
     std::string transmissionType = "";
     int yearOfProduction = 0;
-    float batteryPercentage = 0; // for electric cars
     float fuelTank = 100;
     float range = 0;
     std::string features = "";
-    //added these today
     float fuelEfficiency = 0;
     float horsePower = 0;
     float torque = 0;
@@ -34,13 +31,12 @@ public:
     }
 
     //constructor with parameters
-    Car(std::string manufacturer, std::string model, std::string chassis, std::string transmission, int yearOfProduction,  
+    Car(std::string manufacturer, std::string model, std::string transmission, int yearOfProduction,  
         std::string features, float horsePower, float torque, float safetyRating, float price, 
         float topSpeed) {
     
         this->setManufacturer(manufacturer);
         this->setModel(model);
-        this->setChassis(chassis);
         this->setTransmission(transmission);
         this->setYearOfProduction(yearOfProduction);
         this->setFeatures(features);
@@ -59,7 +55,6 @@ public:
     Car(const Car& car){
         manufacturer = car.manufacturer;
         model = car.model;
-        chassis = car.chassis;
         transmissionType = car.transmissionType;
         yearOfProduction = car.yearOfProduction;
         features = car.features;
@@ -99,9 +94,6 @@ public:
         return this->features;
     }
 
-    std::string getChassis() const{
-        return this->chassis;
-    }
 
     std::string getTypeOfEngine() const{
         return this->typeOfEngine;
@@ -109,10 +101,6 @@ public:
 
     float getRange() const{
         return this->range;
-    }
-
-    float getBatteryPercentage() const{
-        return this->batteryPercentage;
     }
 
     float getFuelTank() const{
@@ -184,12 +172,6 @@ public:
         this->features = newFeatures;
     }
 
-    void setChassis(std::string newChassis){
-        if(newChassis.empty())
-            throw "Chassis field cannot be left empty. Exiting...";
-        this->chassis = newChassis;
-    }
-
     void setTypeOfEngine(std::string newTypeOfEngine){
         if(newTypeOfEngine.empty())
             throw "Type of engine field cannot be left empty. Exiting...";
@@ -200,12 +182,6 @@ public:
         if(newRange < 0)
             throw "Range cannot be negative. Exiting...";
         this->range = newRange;
-    }
-
-    void setBatteryPercentage(int newBatteryPercentage){
-        if(newBatteryPercentage < 0)
-            throw "Battery percentage cannot be negative. Exiting...";
-        this->batteryPercentage = newBatteryPercentage;
     }
 
     void setFuelTank(float newFuelTank){
