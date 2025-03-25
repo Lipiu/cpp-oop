@@ -26,18 +26,22 @@ void Customer::purchaseCar(Car& car){
     }
 }
 
-void Customer::addMoney(int amount){
-    std::string answer = "";
-    std::cout << "Would you like to add money to your budget? ";
+void Customer::addMoney(float amount){
+    std::string answer;
+    std::cout << "Would you like to add money to your budget? (yes/no): ";
     std::cin >> answer;
-    if(answer == "yes"){
+
+    for (int i = 0; i < answer.length(); i++) {
+        answer[i] = tolower(answer[i]);
+    }
+
+    if (answer == "yes") {
         this->budget += amount;
-        std::cout << "Budget after adding money: " << this->budget;
-    }
-    if(answer == "no"){
-        std::cout << "Your budget is: " << this->budget << std::endl;
-    }
-    else{
-        std::cout << "No action performed.";
+        std::cout << "Updated budget: $" << this->budget << std::endl;
+    } else if (answer == "no") {
+        std::cout << "Budget remains: $" << this->budget << std::endl;
+    } else {
+        std::cout << "Invalid input, no action taken." << std::endl;
     }
 }
+

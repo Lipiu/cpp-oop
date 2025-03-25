@@ -17,7 +17,6 @@ public:
 
 
     //methods
-    void getAvailableTotalStock();
     void addCar(const Car& car);
     void removeCar(const Car& car);
     static int getTotalCars();

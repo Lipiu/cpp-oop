@@ -115,7 +115,7 @@ public:
     // methods
     void printInfoCustomer();
     void purchaseCar(Car& car);
-    void addMoney(int amount);
+    void addMoney(float amount);
 };
 
 int Customer::carPurchased = 0;

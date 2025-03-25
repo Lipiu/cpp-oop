@@ -13,6 +13,6 @@ void Garage::removeCar(const Car& car){
 }
 
 int Garage::getTotalCars(){
-    std::cout << "Total cars " << totalCars << std::endl;
-    return 0;
+    std::cout << "Total cars in garage: " << totalCars << std::endl;
+    return totalCars;
 }
